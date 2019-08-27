@@ -2,7 +2,6 @@ package org.netty.proxy;
 
 import java.net.InetAddress;
 
-import org.netty.config.Config;
 import org.netty.encryption.CryptFactory;
 import org.netty.encryption.CryptUtil;
 import org.netty.encryption.ICrypt;
@@ -28,8 +27,8 @@ public class HostHandler extends ChannelInboundHandlerAdapter {
 	private static Logger logger = LoggerFactory.getLogger(HostHandler.class);
 	private ICrypt _crypt;
 
-	public HostHandler(Config config) {
-		this._crypt = CryptFactory.get(config.get_method(), config.get_password());
+	public HostHandler(String method,String password) {
+		this._crypt = CryptFactory.get(method,password);
 	}
 
 	@Override
